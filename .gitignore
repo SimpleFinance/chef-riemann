@@ -1,4 +1,6 @@
 .vagrant
+Cheffile.lock
+tmp
 Berksfile.lock
 Gemfile.lock
 *~
