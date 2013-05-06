@@ -24,6 +24,14 @@ include_recipe 'runit::default'
 
 user node[:riemann][:user][:name] do
   home node[:riemann][:user][:home]
+  shell '/bin/bash'
+  system true
+end
+
+directory node[:riemann][:user][:home] do
+  owner node[:riemann][:user][:name]
+  group node[:riemann][:user][:name]
+  action :create
 end
 
 directory '/var/log/riemann/' do
@@ -48,4 +56,7 @@ runit_service 'riemann' do
   supports :restart => true
   action [:enable, :start]
 end
+
+include_recipe 'riemann::utilities'
+include_recipe 'riemann::dashboard'
 
