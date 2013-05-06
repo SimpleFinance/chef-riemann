@@ -19,7 +19,7 @@ default[:riemann][:server][:host] = 'localhost'
 default[:riemann][:dashboard][:enable] = true
 default[:riemann][:dashboard][:directory] = '/opt/riemann-dash'
 default[:riemann][:dashboard][:env] = {
-  "PATH" => "$PATH:/opt/chef/embedded/bin/ruby"
+  "PATH" => "$PATH:/opt/chef/embedded/bin"
 }
 
 default[:riemann][:health][:enable] = false
