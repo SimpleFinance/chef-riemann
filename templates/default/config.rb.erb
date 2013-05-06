@@ -1,0 +1,6 @@
+set :port, 12000
+config[:client][:host] = '<%= @riemann_server %>'
+config[:age_scale] = 3600
+config[:controllers] << '/opt/riemann-dash/controllers'
+config[:views] = '/opt/riemann-dash/views'
+public_dir '/opt/riemann-dash/public'

@@ -1,0 +1,23 @@
+<h1>Know a Boundary.</h1>
+
+<div class="box">
+  <% sad = query 'state != "ok"' %>
+  <% if sad.empty? %>
+    <h2>Status: Winning.</h2>
+  <% else %>
+    <div class="box">
+      <h2>Sad Pandas</h2>
+      <%= state_list sad %>
+    </div>
+  <% end %>
+</div>
+
+<div class="box"><%= state_chart query('service = "cpu" or service = "memory" or service =~ "disk%" or service = "load"'), :title => "Health" %></div>
+
+<div class="box"><%= state_chart query('service =~ "kobayashi riak %"'), :title => "Kobayashi Riak" %></div>
+
+<div class="box"><%= state_chart query('service =~ "misc riak %"'), :title => "Misc Riak" %></div>
+
+<div class="box"><%= state_chart query('service = "events/sec"'), :title => "Riemann" %></div>
+
+<div class="box"><%= state_chart query('service =~ "% rx bytes" or service =~ "% tx bytes" or service =~ "% rx packets" or service =~ "% tx packets" or service =~ "% rx errs" or service =~ "% tx errs" or service =~ "% rx drops" or service =~ "% tx drops"'), :title => "Net" %></div>
