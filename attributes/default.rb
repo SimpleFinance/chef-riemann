@@ -14,9 +14,13 @@ default[:riemann][:package_url] = "http://aphyr.com/riemann/#{node[:riemann][:pa
 default[:riemann][:user][:name] = 'riemann'
 default[:riemann][:user][:home] = '/home/riemann'
 default[:riemann][:user][:shell] = '/bin/bash'
+default[:riemann][:server][:host] = 'localhost'
 
 default[:riemann][:dashboard][:enable] = true
 default[:riemann][:dashboard][:directory] = '/opt/riemann-dash'
+default[:riemann][:dashboard][:env] = {
+  "PATH" => "$PATH:/opt/chef/embedded/bin/ruby"
+}
 
 default[:riemann][:health][:enable] = false
 default[:riemann][:riak][:enable] = false

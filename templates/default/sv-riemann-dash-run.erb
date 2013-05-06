@@ -1,0 +1,7 @@
+#!/bin/sh
+
+exec 2>&1
+ulimit -n 4096
+ulimit -a
+
+exec chpst -u riemann -e <%= @envdir %> riemann-dash <%= @confdir %>/config.rb
