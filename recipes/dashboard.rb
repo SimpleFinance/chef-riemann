@@ -40,6 +40,7 @@ template ::File.join(node[:riemann][:dashboard][:directory], 'config.rb') do
 end
 
 gem_package 'riemann-dash' do
+  gem_binary '/usr/local/rbenv/shims/gem'
   action :install
 end
 
@@ -48,6 +49,6 @@ runit_service 'riemann-dash' do
   options(
     :envdir => "#{node[:runit][:sv_dir]}/riemann-dash/env",
     :confdir => node[:riemann][:dashboard][:directory] )
-  action [:enable]
+  action [:enable, :start]
 end
 
