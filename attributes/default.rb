@@ -14,12 +14,15 @@ default[:riemann][:package_url] = "http://aphyr.com/riemann/#{node[:riemann][:pa
 default[:riemann][:user][:name] = 'riemann'
 default[:riemann][:user][:home] = '/home/riemann'
 default[:riemann][:user][:shell] = '/bin/bash'
+
 default[:riemann][:server][:host] = 'localhost'
+default[:riemann][:server][:port] = 5555
 
 default[:riemann][:dashboard][:enable] = true
+default[:riemann][:dashboard][:port] = 4567
 default[:riemann][:dashboard][:directory] = '/opt/riemann-dash'
 default[:riemann][:dashboard][:env] = {
-  "PATH" => "$PATH:/opt/chef/embedded/bin"
+  "PATH" => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chef/embedded/bin"
 }
 
 default[:riemann][:health][:enable] = false

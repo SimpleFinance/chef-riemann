@@ -33,7 +33,9 @@ template ::File.join(node[:riemann][:dashboard][:directory], 'config.rb') do
   group 'riemann'
   mode 00755
   variables(
-    :riemann_server => node[:riemann][:server][:host] )
+    :server => node[:riemann][:server][:host],
+    :port => node[:riemann][:server][:port],
+    :dash_dir => node[:riemann][:dashboard][:directory] )
   action :create
 end
 
