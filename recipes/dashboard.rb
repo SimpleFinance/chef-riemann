@@ -44,6 +44,7 @@ end
 
 runit_service 'riemann-dash' do
   env node[:riemann][:dashboard][:env]
+  default_logger true
   options(
     :envdir => "#{node[:runit][:sv_dir]}/riemann-dash/env",
     :confdir => node[:riemann][:dashboard][:directory] )

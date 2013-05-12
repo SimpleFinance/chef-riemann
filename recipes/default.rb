@@ -57,6 +57,7 @@ end
 
 runit_service 'riemann' do
   supports :restart => true
+  default_logger true
   action [:enable, :start]
 end
 
