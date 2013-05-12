@@ -20,7 +20,10 @@
 # Configures the Riemann server
 
 include_recipe 'java::default'
+include_recipe 'rbenv::system'
 include_recipe 'runit::default'
+
+rbenv_global '1.9.3-p374'
 
 user node[:riemann][:user][:name] do
   home node[:riemann][:user][:home]
@@ -54,6 +57,7 @@ end
 
 runit_service 'riemann' do
   supports :restart => true
+  default_logger true
   action [:enable, :start]
 end
 
