@@ -1,5 +1,4 @@
 # Serve HTTP traffic on this server:port
-set :bind, <%= @server %>
 set :port, <%= @port %>
 
 riemann_base = "#{Gem.all_load_paths.grep(/riemann-dash/).first}/.."
